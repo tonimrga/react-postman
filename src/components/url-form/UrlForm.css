@@ -1,0 +1,21 @@
+.url-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.url-form__input {
+    border: 1px solid #ccc;
+    width: 80%;
+    padding: 10px 5px;
+}
+
+.url-form__submit {
+    background-color: #04AA6D;
+    color: white;
+    margin-left: 20px;
+    padding: 11px 16px;
+    border: none;
+    cursor: pointer;
+    width: 15%;
+}
