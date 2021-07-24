@@ -1,16 +1,32 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { RequestBuilder, ResponsePreview, UrlForm } from '../';
+import { ResponseObject } from '../../interfaces';
+import { handleAxiosError } from '../../utils';
 import './AppBody.css';
 
 export const AppBody: React.FC = () => {
+  const [errorText, setErrorText] = useState<string | undefined>();
+  const [responseObject, setResponseObject] = useState<ResponseObject | undefined>();
+
   const onSendRequest = async (url: string, method: string) => {
-    const response = await axios({
-      method: 'get',
-      url: url,
-    });
-    console.log(response);
+    try {
+      const response = await axios({ method: 'get', url: url });
+      const responseObject = {
+        data: response.data,
+        headers: response.headers,
+        method: response.config.method,
+        status: response.status,
+        statusText: response.statusText,
+      }
+      setErrorText(undefined);
+      setResponseObject(responseObject);
+    } catch(e) {
+      const errorObject = handleAxiosError(e);
+      if (!errorObject) setErrorText('Error: Could not send request.');
+      setResponseObject(errorObject);
+    }
   };
 
   return (
@@ -18,7 +34,7 @@ export const AppBody: React.FC = () => {
         <UrlForm onSendRequest={onSendRequest} />
         <div className='app-body__request'>
             <RequestBuilder />
-            <ResponsePreview />
+            <ResponsePreview errorText={errorText} response={responseObject} />
         </div>
     </div>
   );
