@@ -1,1 +1,1 @@
-# Postman Clone app in React and Typescript
+# Postman like app created with React and Typescript
