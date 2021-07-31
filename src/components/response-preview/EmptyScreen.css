@@ -1,0 +1,16 @@
+.response-preview-empty {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 40px);
+    margin: 10px 0 0 10px;
+}
+
+.response-preview-empty-text {
+    background-color: #f1f1f1;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 20px 40px;
+    text-align: center;
+}

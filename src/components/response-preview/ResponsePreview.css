@@ -1,9 +1,38 @@
 .response-preview {
     width: 100%;
-    border: 1px solid black;
+    background-color: #f1f1f1;
 }
 
-.response-preview-empty {
+.response-preview-title {
+    display: flex;
+    align-items: center;
     width: 100%;
-    border: 1px solid black;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 300;
+    padding-left: 20px;
+}
+
+.response-preview-tabs {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.response-preview-tabs__button {
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    border-right: 2px solid #f1f1f1;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 11px 16px;
+    margin-right: 1px;
+    width: 120px;
+}
+
+.response-status-bar {
+    font-size: 14px;    
 }

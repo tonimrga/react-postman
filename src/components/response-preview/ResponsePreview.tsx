@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ResponseObject } from '../../interfaces';
+import { BodyTab } from './BodyTab';
+import { EmptyScreen } from './EmptyScreen';
+import { HeadersTab } from './HeadersTab';
 
 import './ResponsePreview.css';
+
+enum ResponseTab {
+  BODY,
+  HEADERS,
+}
 
 interface Props {
   errorText?: string;
@@ -9,19 +17,53 @@ interface Props {
 }
 
 export const ResponsePreview: React.FC<Props> = (props: Props) => {
-  const renderEmptyPreview = (
-    <div className="response-preview-empty">
-      {props.errorText ? props.errorText : 'Enter the URL and click send to get a response.'}
+  const [activeTab, setActiveTab] = useState<ResponseTab>(ResponseTab.BODY);
+
+  const renderStatusBar = () => {
+    if (!props.response) return null;
+
+    return (
+      <div className="response-status-bar">
+        <span>Method: {props.response.method} | Status: {props.response.status} {props.response.statusText}</span>
+      </div>
+    );
+  }
+
+  const renderResponsePreview = () => {
+    if (!props.response) return <EmptyScreen errorText={props.errorText} />;
+
+    switch (activeTab) {
+      case ResponseTab.BODY:
+        return <BodyTab body={props.response.data} />
+      
+      case ResponseTab.HEADERS:
+        return <HeadersTab headers={props.response.headers} />
+    }
+  };
+
+  return (
+    <div className="response-preview">
+      <div className="response-preview-title">
+        <span>Response</span>
+      </div>
+      <div className="response-preview-tabs">
+        <button 
+          className="response-preview-tabs__button"
+          disabled={props.response === undefined}
+          onClick={() => setActiveTab(ResponseTab.BODY)}
+        >
+            Body
+        </button>
+        <button 
+          className="response-preview-tabs__button"
+          disabled={props.response === undefined}
+          onClick={() => setActiveTab(ResponseTab.HEADERS)}
+        >
+          Headers
+        </button>
+        {renderStatusBar()}
+      </div>
+      {renderResponsePreview()}
     </div>
   );
-
-  return props.response ? (
-    <div className='response-preview'>
-      data: {props.response.data.toString()}
-      headers: {props.response.headers.toString()}
-      method: {props.response.method}
-      status: {props.response.status}
-      status text: {props.response.statusText}
-    </div>
-  ) : renderEmptyPreview;
 }
