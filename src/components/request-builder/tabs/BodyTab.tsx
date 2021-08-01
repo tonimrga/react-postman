@@ -10,9 +10,11 @@ interface Props {
 export const BodyTab: React.FC<Props> = (props: Props) => {  
   return (
     <div className="request-builder-body"> 
-      <textarea className="body-textarea" onChange={props.onBodyChange}>
-        {props.body}
-      </textarea>   
+      <textarea 
+        className="body-textarea"
+        value={props.body}
+        onChange={props.onBodyChange}  
+      /> 
     </div>
   );
 }

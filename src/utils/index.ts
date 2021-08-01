@@ -1,3 +1,5 @@
+import { AxiosResponse } from "axios";
+
 import { ResponseObject } from "../interfaces";
 
 export function handleAxiosError(error: any): ResponseObject | undefined {
@@ -14,4 +16,14 @@ export function handleAxiosError(error: any): ResponseObject | undefined {
     
     // The request was made but no response was recieved or request failed 
     return;
+}
+
+export function buildResponseObject(response: AxiosResponse<any>): ResponseObject {
+    return {
+        data: response.data,
+        headers: response.headers,
+        method: response.config.method,
+        status: response.status,
+        statusText: response.statusText,
+    };
 }

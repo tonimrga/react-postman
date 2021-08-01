@@ -12,7 +12,11 @@ enum RequestTab {
 
 interface Props {
   body: string;
+  headers: string[][];
+  queryParams: string[][];
   onBodyChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onHeadersChange: (headers: string[][]) => void;
+  onQueryParamsChange: (queryParams: string[][]) => void;
 }
 
 export const RequestBuilder: React.FC<Props> = (props: Props) => {
@@ -24,10 +28,10 @@ export const RequestBuilder: React.FC<Props> = (props: Props) => {
         return <BodyTab body={props.body} onBodyChange={props.onBodyChange} />;
 
       case RequestTab.QUERY_PARAMS:
-        return <ParamsTab />;
+        return <ParamsTab queryParams={props.queryParams} onQueryParamsChange={props.onQueryParamsChange} />;
       
       case RequestTab.HEADERS:
-        return <HeadersTab />;
+        return <HeadersTab headers={props.headers} onHeadersChange={props.onHeadersChange} />;
     }
   };
   
