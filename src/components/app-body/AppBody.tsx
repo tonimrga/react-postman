@@ -7,8 +7,13 @@ import { handleAxiosError } from '../../utils';
 import './AppBody.css';
 
 export const AppBody: React.FC = () => {
+  const [body, setBody] = useState<string>("{}");
   const [errorText, setErrorText] = useState<string | undefined>();
   const [responseObject, setResponseObject] = useState<ResponseObject | undefined>();
+  
+  const onBodyChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setBody(e.target.value);
+  };
 
   const onSendRequest = async (url: string, method: string) => {
     try {
@@ -33,7 +38,7 @@ export const AppBody: React.FC = () => {
     <div className='app-body'>
         <UrlForm onSendRequest={onSendRequest} />
         <div className='app-body__request'>
-            <RequestBuilder />
+            <RequestBuilder body={body} onBodyChange={onBodyChange} />
             <ResponsePreview errorText={errorText} response={responseObject} />
         </div>
     </div>

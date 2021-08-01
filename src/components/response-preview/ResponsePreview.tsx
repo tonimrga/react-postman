@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+
 import { ResponseObject } from '../../interfaces';
-import { BodyTab } from './BodyTab';
 import { EmptyScreen } from './EmptyScreen';
-import { HeadersTab } from './HeadersTab';
+import { BodyTab, HeadersTab } from './tabs';
 
 import './ResponsePreview.css';
 

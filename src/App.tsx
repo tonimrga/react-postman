@@ -1,7 +1,8 @@
 import React from 'react';
 
-import './App.css';
 import { AppBody, AppHeader } from './components';
+
+import './App.css';
 
 export const App: React.FC = () => {
   return (

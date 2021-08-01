@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BodyTab } from './BodyTab';
+
+import { BodyTab, HeadersTab, ParamsTab } from './tabs';
 
 import './RequestBuilder.css';
 
@@ -9,19 +10,24 @@ enum RequestTab {
   HEADERS,
 }
 
-export const RequestBuilder: React.FC = () => {
+interface Props {
+  body: string;
+  onBodyChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
+export const RequestBuilder: React.FC<Props> = (props: Props) => {
   const [activeTab, setActiveTab] = useState<RequestTab>(RequestTab.BODY);
 
   const renderRequestBuilder = () => {  
     switch (activeTab) {
       case RequestTab.BODY:
-        return <BodyTab />
+        return <BodyTab body={props.body} onBodyChange={props.onBodyChange} />;
 
       case RequestTab.QUERY_PARAMS:
-        return <div>PARAMS</div>
+        return <ParamsTab />;
       
       case RequestTab.HEADERS:
-        return <div>headers</div>
+        return <HeadersTab />;
     }
   };
   
