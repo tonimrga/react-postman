@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { BodyTab, HeadersTab, ParamsTab } from './tabs';
+import { BodyTab, HeadersTab, ParamsTab } from "./tabs";
 
-import './RequestBuilder.css';
+import "./RequestBuilder.css";
 
 enum RequestTab {
   BODY,
@@ -34,16 +34,34 @@ export const RequestBuilder: React.FC<Props> = (props: Props) => {
         return <HeadersTab headers={props.headers} onHeadersChange={props.onHeadersChange} />;
     }
   };
+
+  const buttonClass = "request-builder-tabs__button";
+  const buttonClassActive = "request-builder-tabs__button--active"
   
   return (
     <div className="request-builder">
       <div className="request-builder-title">
-        <span>Request</span>
+        <span>Request builder</span>
       </div>
       <div className="request-builder-tabs">
-        <button className="request-builder-tabs__button" onClick={() => setActiveTab(RequestTab.BODY)}>Body</button>
-        <button className="response-preview-tabs__button" onClick={() => setActiveTab(RequestTab.QUERY_PARAMS)}> Query params</button>
-        <button className="response-preview-tabs__button" onClick={() => setActiveTab(RequestTab.HEADERS)}> Headers</button>
+        <button 
+          className={activeTab === RequestTab.BODY ? buttonClassActive : buttonClass} 
+          onClick={() => setActiveTab(RequestTab.BODY)}
+        > 
+          Body
+        </button>
+        <button 
+          className={activeTab === RequestTab.QUERY_PARAMS ? buttonClassActive : buttonClass} 
+          onClick={() => setActiveTab(RequestTab.QUERY_PARAMS)}
+        >
+          Query params
+        </button>
+        <button 
+          className={activeTab === RequestTab.HEADERS ? buttonClassActive : buttonClass} 
+          onClick={() => setActiveTab(RequestTab.HEADERS)}
+        >
+          Headers
+        </button>
       </div>
       {renderRequestBuilder()}
     </div>

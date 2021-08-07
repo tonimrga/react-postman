@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { renderPlacholderJson } from '../../../utils';
+
 import './BodyTab.css';
 
 interface Props {
@@ -12,6 +14,7 @@ export const BodyTab: React.FC<Props> = (props: Props) => {
     <div className="request-builder-body"> 
       <textarea 
         className="body-textarea"
+        placeholder={renderPlacholderJson()}
         value={props.body}
         onChange={props.onBodyChange}  
       /> 

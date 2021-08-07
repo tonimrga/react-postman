@@ -1,4 +1,13 @@
-.method-picker {
-    margin-right: 20px;
-    width: 5%;
+.method-picker-wrapper {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.method-picker-select {
+    padding: 10px;
+    border: 1px solid lightblue;
+    border-radius: 4px;
+    background-color: white;
+    width: 110px;
+    font-size: 13px;
 }

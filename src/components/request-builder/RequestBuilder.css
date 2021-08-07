@@ -1,6 +1,8 @@
 .request-builder {
     width: 100%;
-    background-color: #f1f1f1;
+    background-color: white;
+    border: 1px solid lightblue;
+    border-radius: 4px;
 }
 
 .request-builder-title {
@@ -10,6 +12,7 @@
     height: 30px;
     font-size: 14px;
     padding-left: 10px;
+    border-bottom: 1px solid lightblue;
 }
 
 .request-builder-tabs {
@@ -17,17 +20,28 @@
     display: flex;
     align-items: center;
     height: 40px;
-    margin-left: 10px;
+    margin: 10px 0px 0px 20px;
 }
 
 .request-builder-tabs__button {
     background-color: white;
+    border: 1px solid lightblue;
+    border-radius: 4px;
     cursor: pointer;
-    border: none;
-    border-right: 2px solid #f1f1f1;
     font-size: 14px;
-    font-weight: 300;
-    padding: 11px 16px;
-    margin-right: 1px;
-    width: 135px;
+    padding: 10px 0px;
+    margin-right: 5px;
+    width: 120px;
+}
+
+.request-builder-tabs__button--active {
+    background-color: lightblue;
+    color: white;
+    border: 1px solid lightblue;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px 0px;
+    margin-right: 5px;
+    width: 120px;
 }

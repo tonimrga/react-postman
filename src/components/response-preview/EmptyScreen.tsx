@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import './EmptyScreen.css';
+import "./EmptyScreen.css";
 
 interface Props {
     errorText?: string;

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios, { Method } from 'axios';
 
 import { RequestBuilder, ResponsePreview, UrlForm } from './components';
 import { ResponseObject } from './interfaces';
-import { buildResponseObject, handleAxiosError } from './utils';
+import { buildResponseObject, handleAxiosError, prepareRequestBody, prepareRequestHeaders } from './utils';
 
 import './App.css';
 
 export const App: React.FC = () => {
-  const [reqBody, setReqBody] = useState<string>("{}");
+  const [isRequestPending, setIsRequestPending] = useState<boolean>(false);
+  const [reqBody, setReqBody] = useState<string>("");
   const [reqHeaders, setReqHeaders] = useState<string[][]>([]);
   const [reqQueryParams, setReqQueryParams] = useState<string[][]>([]);
   const [errorText, setErrorText] = useState<string | undefined>();
@@ -26,9 +27,16 @@ export const App: React.FC = () => {
     setReqQueryParams(reqQueryParams);
   };
 
-  const onSendRequest = async (url: string, method: string) => {
+  const onSendRequest = async (reqUrl: string, reqMethod: string) => {
+    setIsRequestPending(true);
     try {
-      const response = await axios({ method: 'get', url: url });
+      const response = await axios({ 
+        data: prepareRequestBody(reqBody),
+        headers: prepareRequestHeaders(reqHeaders),
+        method: reqMethod as Method, 
+        params: new URLSearchParams(reqQueryParams), 
+        url: reqUrl,
+      });      
       const responseObject = buildResponseObject(response);
       setErrorText(undefined);
       setResponseObject(responseObject);
@@ -36,6 +44,8 @@ export const App: React.FC = () => {
       const errorObject = handleAxiosError(e);
       if (!errorObject) setErrorText('Error: Could not send request.');
       setResponseObject(errorObject);
+    } finally {
+      setIsRequestPending(false);
     }
   };
 
@@ -45,7 +55,7 @@ export const App: React.FC = () => {
         <h1 className='app-header__title'>Postman Clone</h1>
       </div>
       <div className='app-body'>
-        <UrlForm onSendRequest={onSendRequest} />
+        <UrlForm isRequestPending={isRequestPending} onSendRequest={onSendRequest} />
         <div className='app-body__request'>
             <RequestBuilder 
               body={reqBody}

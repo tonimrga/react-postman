@@ -5,3 +5,7 @@ export interface ResponseObject {
     status?: number;
     statusText?: string
 };
+
+export interface HeaderObject {
+    [key: string]: any;
+  }

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { ResponseObject } from '../../interfaces';
-import { EmptyScreen } from './EmptyScreen';
-import { BodyTab, HeadersTab } from './tabs';
+import { ResponseObject } from "../../interfaces";
+import { EmptyScreen } from "./EmptyScreen";
+import { BodyTab, HeadersTab } from "./tabs";
 
-import './ResponsePreview.css';
+import "./ResponsePreview.css";
 
 enum ResponseTab {
   BODY,
