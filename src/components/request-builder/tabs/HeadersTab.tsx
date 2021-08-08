@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import './HeadersTab.css';
+import "./HeadersTab.css";
 
 interface Props {
   headers: string[][];
@@ -37,29 +37,28 @@ export const HeadersTab: React.FC<Props> = (props: Props) => {
   };
 
   const renderQueryParams = props.headers.map((header, index) => (
-    <div className="headers-row" key={index}>
-      <div className="headers-key">
-        <input 
-          type="text" 
-          value={header[0]} 
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onKeyChange(e.target.value, index)} />
-      </div>
-      <div className="headers-value">
-        <input 
-          type="text" 
-          value={header[1]} 
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onValueChange(e.target.value, index)}
-        />
-      </div>
-      <div className="headers-remove">
-        <button className="remove-headers-button" onClick={() => onRemoveHeader(index)}>x</button>
-      </div>
+    <div className="request-headers-row" key={index}>
+      <input
+        className="request-headers-input"
+        type="text" 
+        value={header[0]} 
+        placeholder="Enter a key"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onKeyChange(e.target.value, index)} 
+      />
+      <input 
+        className="request-headers-input"
+        type="text" 
+        value={header[1]}
+        placeholder="Enter a value"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onValueChange(e.target.value, index)}
+      />
+      <button className="request-headers-remove-button" onClick={() => onRemoveHeader(index)}>x</button>
     </div>
   ));
 
   return (
-    <div className="request-builder-headers"> 
-      <button className="add-headers-button" onClick={onAddNewClick}>+ Add new</button>
+    <div className="request-headers"> 
+      <button className="request-headers-add-button" onClick={onAddNewClick}>+ Add</button>
       {renderQueryParams}
     </div>
   );

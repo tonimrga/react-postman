@@ -42,7 +42,7 @@ export const UrlForm: React.FC<Props> = (props: Props) => {
         className="url-form__submit"
         disabled={isSendButtonDisabled()}
         type="submit"
-        value={props.isRequestPending ? "Sending..." : "Send request"}
+        value={props.isRequestPending ? "Sending..." : "Send"}
       />
     </form>
   );

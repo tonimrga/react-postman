@@ -1,9 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import './BodyTab.css';
+import "./BodyTab.css";
 
 interface Props {
     body: any;
+    method?: string;
+    status?: number;
+    statusText?: string;
 }
 
 export const BodyTab: React.FC<Props> = (props: Props) => {
@@ -17,11 +20,20 @@ export const BodyTab: React.FC<Props> = (props: Props) => {
     return body;
   };
 
+  const renderStatusBar = () => {
+    return (
+      <div className="response-status-bar">
+        Method: <span className="status-method">{props.method}</span> | 
+        Status: {props.status} {props.statusText}
+      </div>
+    );
+  };
+
   return (
     <div className="response-preview-body"> 
       <pre>
-        {renderBody()}
-      </pre>
+        {renderStatusBar()}
+        {renderBody()}</pre>
     </div>
   );
 }

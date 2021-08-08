@@ -38,28 +38,27 @@ export const ParamsTab: React.FC<Props> = (props: Props) => {
 
   const renderQueryParams = props.queryParams.map((param, index) => (
     <div className="query-params-row" key={index}>
-      <div className="query-params-key">
-        <input 
-          type="text" 
-          value={param[0]} 
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onKeyChange(e.target.value, index)} />
-      </div>
-      <div className="query-params-value">
-        <input 
-          type="text" 
-          value={param[1]} 
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onValueChange(e.target.value, index)}
-        />
-      </div>
-      <div className="query-params-remove">
-        <button className="remove-query-params-button" onClick={() => onRemoveQueryParam(index)}>x</button>
-      </div>
+      <input 
+        className="query-params-input"          
+        type="text" 
+        value={param[0]} 
+        placeholder="Enter a key"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onKeyChange(e.target.value, index)} 
+      />
+      <input
+        className="query-params-input"
+        type="text" 
+        value={param[1]} 
+        placeholder="Enter a value"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onValueChange(e.target.value, index)}
+      />
+      <button className="query-params-remove-button" onClick={() => onRemoveQueryParam(index)}>x</button>
     </div>
   ));
 
   return (
-    <div className="request-builder-params"> 
-      <button className="add-query-params-button" onClick={onAddNewClick}>+ Add new</button>
+    <div className="query-params"> 
+      <button className="query-params-add-button" onClick={onAddNewClick}>+ Add</button>
       {renderQueryParams}
     </div>
   );

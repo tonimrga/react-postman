@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { ResponseObject } from "../../interfaces";
 import { EmptyScreen } from "./EmptyScreen";
@@ -17,51 +17,57 @@ interface Props {
 }
 
 export const ResponsePreview: React.FC<Props> = (props: Props) => {
-  const [activeTab, setActiveTab] = useState<ResponseTab>(ResponseTab.BODY);
+  const [activeTab, setActiveTab] = useState<ResponseTab | null>(null);
 
-  const renderStatusBar = () => {
-    if (!props.response) return null;
-
-    return (
-      <div className="response-status-bar">
-        <span>Method: {props.response.method} | Status: {props.response.status} {props.response.statusText}</span>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (!props.response) {
+      setActiveTab(null);
+    } else {
+      setActiveTab(ResponseTab.BODY);
+    }
+  }, [props.response]);
 
   const renderResponsePreview = () => {
     if (!props.response) return <EmptyScreen errorText={props.errorText} />;
 
     switch (activeTab) {
       case ResponseTab.BODY:
-        return <BodyTab body={props.response.data} />
+        return (
+          <BodyTab 
+            body={props.response.data} 
+            method={props.response.method} 
+            status={props.response.status} 
+            statusText={props.response.statusText}
+          />
+        );
       
       case ResponseTab.HEADERS:
         return <HeadersTab headers={props.response.headers} />
     }
   };
 
+  const buttonClass = "response-preview-tabs__button";
+  const buttonClassActive = "response-preview-tabs__button--active"
   return (
     <div className="response-preview">
       <div className="response-preview-title">
-        <span>Response</span>
+        <span>Response preview</span>
       </div>
       <div className="response-preview-tabs">
         <button 
-          className="response-preview-tabs__button"
+          className={activeTab === ResponseTab.BODY ? buttonClassActive : buttonClass}
           disabled={props.response === undefined}
           onClick={() => setActiveTab(ResponseTab.BODY)}
         >
             Body
         </button>
         <button 
-          className="response-preview-tabs__button"
+          className={activeTab === ResponseTab.HEADERS ? buttonClassActive : buttonClass}
           disabled={props.response === undefined}
           onClick={() => setActiveTab(ResponseTab.HEADERS)}
         >
           Headers
         </button>
-        {renderStatusBar()}
       </div>
       {renderResponsePreview()}
     </div>

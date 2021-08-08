@@ -37,7 +37,6 @@ export const RequestBuilder: React.FC<Props> = (props: Props) => {
 
   const buttonClass = "request-builder-tabs__button";
   const buttonClassActive = "request-builder-tabs__button--active"
-  
   return (
     <div className="request-builder">
       <div className="request-builder-title">
