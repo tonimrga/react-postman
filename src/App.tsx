@@ -15,8 +15,8 @@ export const App: React.FC = () => {
   const [errorText, setErrorText] = useState<string | undefined>();
   const [responseObject, setResponseObject] = useState<ResponseObject | undefined>();
   
-  const onReqBodyChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setReqBody(e.target.value);
+  const onReqBodyChange = (value: string) => {
+    setReqBody(value);
   };
 
   const onReqHeadersChange = (reqHeaders: string[][]) => {

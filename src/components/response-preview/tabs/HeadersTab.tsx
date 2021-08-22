@@ -9,7 +9,7 @@ interface Props {
 
 export const HeadersTab: React.FC<Props> = (props: Props) => {
   const renderHeaders = Object.keys(props.headers).map((key) => (
-    <div className="response-header">
+    <div className="response-header" key={key}>
       <div className="response-header__key">{key}:</div>
       <div className="response-header__value">{props.headers[key]}</div>
     </div>

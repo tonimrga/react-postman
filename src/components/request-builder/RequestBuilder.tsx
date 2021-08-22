@@ -14,7 +14,7 @@ interface Props {
   body: string;
   headers: string[][];
   queryParams: string[][];
-  onBodyChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onBodyChange: (value: string) => void;
   onHeadersChange: (headers: string[][]) => void;
   onQueryParamsChange: (queryParams: string[][]) => void;
 }
