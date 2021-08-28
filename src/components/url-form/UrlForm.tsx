@@ -34,6 +34,7 @@ export const UrlForm: React.FC<Props> = (props: Props) => {
       <MethodPicker method={method} onMethodChange={onMethodChange} />
       <input
         className="url-form__input"
+        placeholder="Enter the URL"
         type="text"
         value={url}
         onChange={onUrlChange}

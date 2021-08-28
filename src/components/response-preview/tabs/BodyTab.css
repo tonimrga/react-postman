@@ -1,8 +1,8 @@
 .response-preview-body {
     display: flex;
     background-color: white;
-    height: calc(100% - 120px);
-    padding: 15px 20px;
+    height: calc(100% - 90px);
+    padding: 20px;
 }
 
 pre {
@@ -17,6 +17,17 @@ pre {
     margin: 0px;
 }
 
+.response-status-bar {
+    font-size: 12px;
+    padding: 5px 0 10px 5px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-bottom: 2px solid lightblue;
+}
+
+.status-method {
+    text-transform: uppercase;
+}
 
 @media only screen and (max-width: 900px) {
     pre {

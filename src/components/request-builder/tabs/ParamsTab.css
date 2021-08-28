@@ -1,7 +1,7 @@
 .query-params {
     background-color: white;
-    height: calc(100% - 120px);
-    padding: 15px 20px;
+    height: calc(100% - 90px);
+    padding: 20px;
     overflow-y: auto;
 }
 

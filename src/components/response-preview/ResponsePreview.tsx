@@ -50,16 +50,13 @@ export const ResponsePreview: React.FC<Props> = (props: Props) => {
   const buttonClassActive = "response-preview-tabs__button--active"
   return (
     <div className="response-preview">
-      <div className="response-preview-title">
-        <span>Response preview</span>
-      </div>
       <div className="response-preview-tabs">
         <button 
           className={activeTab === ResponseTab.BODY ? buttonClassActive : buttonClass}
           disabled={props.response === undefined}
           onClick={() => setActiveTab(ResponseTab.BODY)}
         >
-            Body
+          Body
         </button>
         <button 
           className={activeTab === ResponseTab.HEADERS ? buttonClassActive : buttonClass}

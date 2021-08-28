@@ -2,8 +2,8 @@
     display: flex;
     background-color: white;
     flex-direction: column;
-    height: calc(100% - 140px);
-    margin: 15px 20px;
+    height: calc(100% - 90px);
+    margin: 20px;
     padding: 10px;
     overflow-y: auto;
     border: 1px solid lightblue;
