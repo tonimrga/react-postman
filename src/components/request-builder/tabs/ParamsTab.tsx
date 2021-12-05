@@ -39,14 +39,14 @@ export const ParamsTab: React.FC<Props> = (props: Props) => {
   const renderQueryParams = props.queryParams.map((param, index) => (
     <div className="query-params-row" key={index}>
       <input 
-        className="query-params-input"          
+        className="query-params-key"          
         type="text" 
         value={param[0]} 
         placeholder="Enter a key"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => onKeyChange(e.target.value, index)} 
       />
       <input
-        className="query-params-input"
+        className="query-params-value"
         type="text" 
         value={param[1]} 
         placeholder="Enter a value"
@@ -58,7 +58,7 @@ export const ParamsTab: React.FC<Props> = (props: Props) => {
 
   return (
     <div className="query-params"> 
-      <button className="query-params-add-button" onClick={onAddNewClick}>+ Add</button>
+      <button className="query-params-add-button" onClick={onAddNewClick}>+ Add new</button>
       {renderQueryParams}
     </div>
   );

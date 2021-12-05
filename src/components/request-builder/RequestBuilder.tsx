@@ -44,7 +44,7 @@ export const RequestBuilder: React.FC<Props> = (props: Props) => {
           className={activeTab === RequestTab.BODY ? buttonClassActive : buttonClass} 
           onClick={() => setActiveTab(RequestTab.BODY)}
         > 
-          Body
+          Request Body
         </button>
         <button 
           className={activeTab === RequestTab.QUERY_PARAMS ? buttonClassActive : buttonClass} 
@@ -56,7 +56,7 @@ export const RequestBuilder: React.FC<Props> = (props: Props) => {
           className={activeTab === RequestTab.HEADERS ? buttonClassActive : buttonClass} 
           onClick={() => setActiveTab(RequestTab.HEADERS)}
         >
-          Headers
+          Request Headers
         </button>
       </div>
       {renderRequestBuilder()}

@@ -56,14 +56,14 @@ export const ResponsePreview: React.FC<Props> = (props: Props) => {
           disabled={props.response === undefined}
           onClick={() => setActiveTab(ResponseTab.BODY)}
         >
-          Body
+          Response Body
         </button>
         <button 
           className={activeTab === ResponseTab.HEADERS ? buttonClassActive : buttonClass}
           disabled={props.response === undefined}
           onClick={() => setActiveTab(ResponseTab.HEADERS)}
         >
-          Headers
+          Response Headers
         </button>
       </div>
       {renderResponsePreview()}

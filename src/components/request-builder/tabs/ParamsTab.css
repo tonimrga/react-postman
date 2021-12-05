@@ -1,7 +1,7 @@
 .query-params {
-    background-color: white;
-    height: calc(100% - 90px);
-    padding: 20px;
+    background-color: #f1f1f1;
+    height: calc(100% - 70px);
+    padding: 10px;
     overflow-y: auto;
 }
 
@@ -12,31 +12,40 @@
     margin-top: 10px;
 }
 
-.query-params-input {
-    border: 1px solid lightblue;
+.query-params-key {
+    border: 1px solid #9575cd;
     border-radius: 4px;
     padding: 10px;
-    margin-right: 20px;
+    margin-right: 10px;
     font-size: 14px;
 }
 
-.query-params-add-button {
-    background-color: white;
-    color: black;
-    padding: 11px 16px;
-    border: 1px solid lightblue;
+.query-params-value {
+    border: 1px solid #9575cd;
     border-radius: 4px;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    width: 60%;
+}
+
+.query-params-add-button {
+    background-color: #9575cd;
+    color: white;
+    border: 1px solid #9575cd;
+    border-radius: 2px;
+    padding: 10px;
     cursor: pointer;
-    width: 80px;
+    width: 100px;
     font-size: 14px;
 }
 
 .query-params-remove-button {
-    background-color: lightblue;
+    background-color: #5e35b1;
     color: white;
     padding: 10px 0px;
-    border: none;
-    border-radius: 4px;
+    border-radius: 2px;
+    border: 1px solid #9575cd;
     cursor: pointer;
     width: 40px;
     font-size: 15px;

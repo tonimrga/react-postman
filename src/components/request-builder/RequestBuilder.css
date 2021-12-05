@@ -1,52 +1,51 @@
 .request-builder {
     width: 45%;
-    background-color: white;
-    border: 1px solid lightblue;
-    border-radius: 4px;
-    margin-right: 5px;
+    background-color: #f1f1f1;
+    margin-right: 2.5px;
     flex-grow: 1;
     flex-shrink: 0;
 }
 
 .request-builder-tabs {
-    background-color: white;
+    background-color: #f1f1f1;
     display: flex;
     align-items: center;
     height: 40px;
-    margin: 10px 0px 0px 20px;
+    padding: 10px;
+    border-bottom: 5px solid white;
 }
 
 .request-builder-tabs__button {
-    background-color: white;
+    background-color: #9575cd;
+    color: white;
     border: none;
-    border-bottom: 2px solid #f1f1f1;
+    border-radius: 2px;
     cursor: pointer;
     font-size: 14px;
     padding: 10px 0px;
     margin-right: 5px;
-    width: 120px;
+    width: 150px;
 }
 
 .request-builder-tabs__button--active {
-    background-color: white;
+    background-color: #5e35b1;
+    color: white;
     border: none;
-    border-bottom: 2px solid lightblue;
+    border-radius: 2px;
     cursor: pointer;
     font-size: 14px;
     padding: 10px 0px;
     margin-right: 5px;
-    width: 120px;
+    width: 150px;
 }
 
 @media only screen and (max-width: 900px) {
     .request-builder {
         width: 100%;
-        background-color: white;
-        border: 1px solid lightblue;
-        border-radius: 4px;
+        background-color: #f1f1f1;
         flex-grow: 1;
         flex-shrink: 0;
         margin-right: 0px;
-        height: 600px;
+        height: 400px;
     }
 }

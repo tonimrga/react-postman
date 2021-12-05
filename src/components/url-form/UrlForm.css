@@ -5,23 +5,23 @@
 }
 
 .url-form__input {
+    background-color: #f1f1f1;
+    border: none;
     flex-grow: 1;
     flex-shrink: 0;
-    border: 1px solid lightblue;
-    border-radius: 4px;
     padding: 10px;
-    margin: 0px 20px;
+    margin: 0px 5px;
     font-size: 14px;
 }
 
 .url-form__submit {
     flex-grow: 0;
     flex-shrink: 0;
-    background-color: white;
-    color: black;
-    padding: 11px 16px;
-    border: 1px solid lightblue;
-    border-radius: 4px;
+    background-color: #9575cd;
+    color: white;
+    padding: 10px 0px;
+    border: none;
+    border-radius: 2px;
     cursor: pointer;
     width: 100px;
     font-size: 14px;

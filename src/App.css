@@ -6,26 +6,28 @@
 .app-body {
   display: flex;
   flex-direction: column;
-  padding: 20px 20px 0px 20px;
+  padding: 5px 10px;
 }
 
 .app-body__request {
   display: flex;
   justify-content: space-evenly;
-  margin: 20px 0px;
-  height: 76vh;
+  margin-top: 5px;
+  height: 84vh;
 }
 
 .app-header {
-  background-color: white;
   display: flex;
   align-items: center;
-  padding: 0px 25px;
+  justify-content: center;
+  background-color: #9575cd;
+  height: 35px;
 }
 
 .app-header__title {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
+  color: white;
 }
 
 @media only screen and (max-width: 900px) {

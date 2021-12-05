@@ -1,19 +1,18 @@
 .response-preview-body {
     display: flex;
-    background-color: white;
-    height: calc(100% - 90px);
-    padding: 20px;
+    background-color: #f1f1f1;
+    height: calc(100% - 70px);
+    padding: 10px;
 }
 
 pre {
+    background-color: white;
     width: 100%;
     max-width: 100%;
     height: calc(100% - 20px);
     overflow-y: auto;
     overflow-x: auto;
     padding: 10px;
-    border: 1px solid lightblue;
-    border-radius: 4px;
     margin: 0px;
 }
 
@@ -22,7 +21,7 @@ pre {
     padding: 5px 0 10px 5px;
     margin-bottom: 20px;
     background-color: white;
-    border-bottom: 2px solid lightblue;
+    border-bottom: 2px solid #9575cd;
 }
 
 .status-method {

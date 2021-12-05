@@ -10,8 +10,8 @@ import './App.css';
 export const App: React.FC = () => {
   const [isRequestPending, setIsRequestPending] = useState<boolean>(false);
   const [reqBody, setReqBody] = useState<string>("");
-  const [reqHeaders, setReqHeaders] = useState<string[][]>([]);
-  const [reqQueryParams, setReqQueryParams] = useState<string[][]>([]);
+  const [reqHeaders, setReqHeaders] = useState<string[][]>([["Content-type", "application/json; charset=UTF-8"]]);
+  const [reqQueryParams, setReqQueryParams] = useState<string[][]>([["", ""]]);
   const [errorText, setErrorText] = useState<string | undefined>();
   const [responseObject, setResponseObject] = useState<ResponseObject | undefined>();
   
@@ -52,7 +52,7 @@ export const App: React.FC = () => {
   return (
     <div className='app'>
       <div className='app-header'>
-        <h1 className='app-header__title'>Postman Clone</h1>
+        <span className='app-header__title'>API Request Builder</span>
       </div>
       <div className='app-body'>
         <UrlForm isRequestPending={isRequestPending} onSendRequest={onSendRequest} />

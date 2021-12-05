@@ -39,14 +39,14 @@ export const HeadersTab: React.FC<Props> = (props: Props) => {
   const renderQueryParams = props.headers.map((header, index) => (
     <div className="request-headers-row" key={index}>
       <input
-        className="request-headers-input"
+        className="request-headers-key"
         type="text" 
         value={header[0]} 
         placeholder="Enter a key"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => onKeyChange(e.target.value, index)} 
       />
       <input 
-        className="request-headers-input"
+        className="request-headers-value"
         type="text" 
         value={header[1]}
         placeholder="Enter a value"
@@ -58,7 +58,7 @@ export const HeadersTab: React.FC<Props> = (props: Props) => {
 
   return (
     <div className="request-headers"> 
-      <button className="request-headers-add-button" onClick={onAddNewClick}>+ Add</button>
+      <button className="request-headers-add-button" onClick={onAddNewClick}>+ Add new</button>
       {renderQueryParams}
     </div>
   );
