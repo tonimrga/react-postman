@@ -12,8 +12,8 @@ export const App: React.FC = () => {
   const [reqBody, setReqBody] = useState<string>("");
   const [reqHeaders, setReqHeaders] = useState<string[][]>([["Content-type", "application/json; charset=UTF-8"]]);
   const [reqQueryParams, setReqQueryParams] = useState<string[][]>([["", ""]]);
-  const [errorText, setErrorText] = useState<string | undefined>();
-  const [responseObject, setResponseObject] = useState<ResponseObject | undefined>();
+  const [errorText, setErrorText] = useState<string>();
+  const [responseObject, setResponseObject] = useState<ResponseObject>();
   
   const onReqBodyChange = (value: string) => {
     setReqBody(value);
